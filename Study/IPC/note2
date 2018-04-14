@@ -1,0 +1,218 @@
+
+Skip to content
+
+Gyan Today
+
+Knowledge point
+
+    Home
+    Upcoming Jobs
+    Current Affairs
+    Exam Results
+    Tutorials
+        Programming
+            C Tutorial
+    Interview Question
+        Tricky C programming questions
+        Most Important Interview Questions In C
+        Operating System FAQ
+            OS Questions Set 1
+        Core Java Interview Questions
+        Software Tools FAQ
+        Linux Interview Questions
+        IPC FAQ
+            IPC Questions Set 1
+        Hadoop interview questions
+        LTE FAQ
+            LTE – Channels
+            LTE Questions Part 1
+            LTE Questions Part 2
+            LTE Questions Set 3
+        Python Interview Questions
+            Python Interview Questions set 1
+            Python Interview Questions set 2
+            Python Interview Questions set 3
+        Ruby Interview Questions
+            Ruby Interview Questions part 1
+            Ruby Interview Questions set 2
+        General Questions
+
+Category: IPC Questions Set 1
+
+Frequently asked important Inter process communication (IPC) interview questions set 1.
+What are the states of a process?
+States of a process
+
+In multitasking computer system each process goes through a number of states from entry into the system until it completes the defined task. So any of processes which are executed have various States, like either executing, waiting to execute or blocked waiting for an event to occur. These various states of the Process is also called as the Status of the process, The Status includes whether the Process has Executed or Whether the process is Waiting for Some input and output from the user and whether the Process is Waiting for the CPU(Central processing Unit) to Run the Program after the Completion of the Process. When a Process Change his State from one State to Another, then this is also called as the Process State Transition. In this a Running Process may goes on Wait and a ready Process may goes on the Wait State and the Wait State can be goes on the Running State.
+
+Given below various states of a process.
+
+    New State: The process being created.
+    Running State:  A process is said to be running if it has the CPU, that is, process actually using the CPU at that particular instant.
+    Blocked (or waiting) State:  A process is said to be blocked if it is waiting for some event to happen such that as an I/O completion before it can proceed. Note that a process is unable to run until some external event happens.
+    Ready State:  A process is said to be ready if it use a CPU if one were available. A ready state process is runnable but temporarily stopped running to let another process run.
+    Terminated state:  The process has finished execution.
+
+As we know that there are many processes those are running at a Time, this is not true. A processor can execute only one Process at a Time. There are the various States of the Processes those determined which Process will be executed. The Processor will Execute all the processes by using the States of the Processes, the Processes those are on the Waiting State will not be executed and CPU will Also divides his time for Execution if there are Many Processes those are Ready to Execute.
+
+I am attaching a state diagram for better overview (Found on Wikipedia), which displayed with arrows indicating possible transitions between states – as can be seen, some processes are stored in main memory, and some are stored in secondary (virtual) memory.
+
+Process_states
+Author GyantodayPosted on October 9, 2015Categories IPC FAQ, IPC Questions Set 1Tags IPC frequently asked questionsLeave a comment on What are the states of a process?
+What is mutex?
+Mutex
+
+Mutex is stand for mutual exclusion object. In computer programming, a mutex is a program object that allows multiple program threads (light weight process) to share the same resource, such as file access, but not simultaneously. When a program is started, a mutex is created with a unique name. After this stage, any thread that needs the resource must lock the mutex from other threads while it is using the resource. If the mutex is already locked, a thread needing the resource is typically queued by the system and then given control when the mutex becomes unlocked (when once more, the mutex is locked during the new thread’s use of the resource).The mutex is set to unlock when the data is no longer needed or the routine is finished.
+Use of Mutex
+
+A mutex provides mutual exclusion, either producer or consumer can have the key (mutex) and proceed with their work. As long as the buffer is filled by producer, the consumer needs to wait, and vice versa. At any point of time, only one thread can work with the entire buffer.
+Author GyantodayPosted on September 22, 2015Categories IPC FAQ, IPC Questions Set 1Tags IPC frequently asked questionsLeave a comment on What is mutex?
+What is process migration?
+Process migration
+
+In simple word Process migration means move a process between machines during its lifetime. It is the act of transferring a process between two machines. It enables dynamic load distribution, fault resilience, eased system administration, and data access locality. It is used to achieve better system wide utilization of resources (e.g. as one computer becomes too heavily loaded, some of the processes can migrate to a less loaded system).
+
+On multicore machines (multiple cores on one processor or multiple processors) process migration happens as a standard part of process scheduling, and it is quite easy to migrate a process within a given machine, since most resources (memory, files, sockets) do not need to be changed, only the execution context (primarily program counter and registers).
+There are two types of process migration
+
+Non-preemptive process migration
+
+Process migration that takes place before execution of the process starts (i.e. migration whereby a process need not be preempted). This type of process migration is relatively cheap, since relatively little administrative overhead is involved.
+
+Preemptive process migration
+
+Process migration whereby a process is preempted, migrated and continues processing in a different execution environment. This type of process migration is relatively expensive, since it involves recording, migration and recreation of the process state as well as the reconstructing of any inter-process communication channels to which the migrating process is connected.
+Author GyantodayPosted on September 22, 2015Categories IPC FAQ, IPC Questions Set 1Tags IPC frequently asked questionsLeave a comment on What is process migration?
+What is process swapping?
+process swapping
+
+For improving the performance of the system we use the concept of swapping. Swapping is a simple memory/process management technique used by the operating system (os) to increase the utilization of the processor by moving some blocked process from the main memory to the secondary memory (hard disk).
+
+It is a technique in which the processes those are on waiting state and those are on suspend or temporary suspend will be stored from outside the memory locations so that the speed of process will be high.In this the process those are waiting for some input and output are transferred to the physical memory from they are running and the processes those are ready for the execution will be execute by the cpu.
+
+When there is a situation to perform swapping, then we uses the sweeper.  The sweeper is used for
+
+1) Selecting which process to be out
+
+2) Selecting which process to be in
+
+3) Providing the memory space to the processes those are newly entered.
+
+In this sweeper will select the suspended process then brings the ready process in memory and after the execution that suspended process will be again entered into the memory by the sweeper.
+
+For swapping the sweeper also uses some address those are also known as the logical and physical address of processes. For providing the logical address into the physical address there the following two approaches used.
+
+1) Static relocation. : In the static relocation swapping never to be performed because the process are always have a memory. Which is not to be changed at the execution time. For example the memory which is provided to the input and output operations and the memory which is provided to the cpu for executing the processes will not be changed so that this is also known as the static relocation of the memory.
+
+2) Dynamic relocation. The dynamic relocation is also known as the memory which is changed and relocates by the processes at the time of execution. So that there must be some mechanism to provide memory those processes those are running. The mapping of the logical address into the physical address will be performed at the time of execution or at run time.
+
+When the memory  is provided to the  process then the particular address is stored by the cpu which is also have a entry into the partition description table means in which partitions a process is running because when the process needs swapping that particular address must be reloaded.
+The Purpose Of Swapping
+
+The purpose of swapping, or paging, is to access data being stored in hard disk and to bring it into the RAM so that it can be used by the application program. Remember that swapping is only necessary when that data is not already in the RAM.
+Author GyantodayPosted on September 21, 2015Categories IPC FAQ, IPC Questions Set 1Tags IPC frequently asked questionsLeave a comment on What is process swapping?
+What is suspended process?
+Suspended process also called blocked process.
+
+Sometimes there will be no processes in the Ready state, because they are all blocked so the OS could suspend one of these blocked processes and swap it out to auxiliary memory (disk). Means processes that are blocked may also be swapped out. In this event the process is both swapped out and blocked, and may be swapped back in again under the same circumstances as a swapped out and waiting process (although in this case, the process will move to the blocked state, and may still be waiting for a resource to become available).
+
+Some of the reasons to suspend a process are…
+
+    If one process is ready to execute,but there is no space
+    in the main memory, then it is suspended.
+    When one process in main memory which was blocked & there
+    is another process ready to execute,but waiting in
+    secondary memory, then the process in main memory is
+    suspended.
+    When the parent process suspends, then the sub process is
+    also suspended.
+
+Author GyantodayPosted on September 20, 2015Categories IPC FAQ, IPC Questions Set 1Tags IPC frequently asked questionsLeave a comment on What is suspended process?
+Search for:
+Recent Posts
+
+    Born today Famous People’s Birthdays 1st September 01/09 in India and world
+    Born today Famous People’s Birthdays 31st August 31/08 in India and world
+    Born today Famous People’s Birthdays 30th August 30/08 in India and world
+    Born today Famous People’s Birthdays 29th August 29/08 in India and world
+    Born today Famous People’s Birthdays 28th August 28/08 in India and world
+
+Recent Comments
+
+    Avinash singh on Q43 Write a C program to reverse odd bits or even bits of an integer.
+    Avinash on Q43 Write a C program to reverse odd bits or even bits of an integer.
+    Dan on Q54 Implement your own toupper(), tolower() and isupper() functions.
+
+Archives
+
+    August 2017
+    August 2016
+    July 2016
+    January 2016
+    December 2015
+    November 2015
+    October 2015
+    September 2015
+    August 2015
+    July 2015
+    June 2015
+    May 2015
+    January 2015
+
+Categories
+
+    Android
+    Cell Phones
+    Core Java Interview Questions
+    Current Affairs
+    Exam Results
+    General Questions
+    Hadoop interview questions
+    IPC FAQ
+    IPC Questions Set 1
+    Jobs Today
+    Linux
+    Linux Interview Questions
+    LTE – Channels
+    LTE FAQ
+    LTE Questions Part 1
+    LTE Questions Part 2
+    LTE Questions Set 3
+    Mac OS
+    Most Important Interview Questions In C
+    News
+    Operating System FAQ
+    OS
+    OS Questions Set 1
+    Others
+    Python Interview Questions
+    Python Interview Questions set 1
+    Python Interview Questions set 2
+    Python Interview Questions set 3
+    Ruby Interview Questions
+    Ruby Interview Questions part 1
+    Ruby Interview Questions set 2
+    Science
+    Sports News
+    Today's Birthday
+    Tricky C programming questions
+    Uncategorized
+    Upcoming Exams and Dates
+    Windows
+    XAMPP
+
+Meta
+
+    Log in
+    Entries RSS
+    Comments RSS
+    WordPress.org
+
+Live Traffic Feed
+
+    About Us
+    Contact
+    Feedback
+
+Gyan Today Proudly powered by WordPress
+

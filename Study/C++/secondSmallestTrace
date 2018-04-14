@@ -1,0 +1,19 @@
+if (arr[i] < first)
+        {
+            second = first;
+            first = arr[i];
+        }
+
+        /* If arr[i] is in between first and second 
+           then update second  */
+        else if (arr[i] < second && arr[i] != first)
+            second = arr[i];
+
+12 34 56 78 89 90 120 345 3
+
+first = second = 32767
+--------------------------------------------------------------------------------------------
+first =12     | first = 12 | first= 3   | 
+second =32767 | second = 34| sewcond= 12|
+--------------------------------------------------------------------------------------------
+
